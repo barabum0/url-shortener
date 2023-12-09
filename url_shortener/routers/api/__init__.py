@@ -2,7 +2,7 @@ from fastapi import APIRouter
 import importlib
 import pkgutil
 
-router = APIRouter()
+router = APIRouter(prefix="/api")
 
 package_name = "url_shortener.routers.api"
 package = importlib.import_module(package_name)
