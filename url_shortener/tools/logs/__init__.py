@@ -13,7 +13,6 @@ def configure_logger():
     logger.add(
         sys.stdout, colorize=True, format=log_format, diagnose=True, backtrace=False
     )
-    logger.add(sys.stderr, backtrace=False, colorize=True, diagnose=True)
     logger.add(
         "log.log",
         rotation="1 week",
@@ -28,8 +27,39 @@ def configure_logger():
     logger.level("WARNING", color="<yellow>")
     logger.level("ERROR", color="<red>")
     logger.level("CRITICAL", color="<bold><white><RED>")
+    logger.level("REQUEST", no=38, color="<blue>")
 
-    for _logger in ("uvicorn", "uvicorn.error", "fastapi", "uvicorn.access"):
-        logging_logger = logging.getLogger(_logger)
-        logging_logger.handlers = [UvicornHandler()]
-        logging_logger.propagate = False
+
+def get_uvicorn_log_config() -> dict:
+    return {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "default": {
+                "()": "uvicorn.logging.DefaultFormatter",
+                "fmt": "%(levelprefix)s %(message)s",
+                "use_colors": None,
+            },
+        },
+        "handlers": {
+            "default": {
+                "()": "logging.StreamHandler",
+                "formatter": "default",
+                "stream": "ext://sys.stdout",
+            },
+            "uvicorn": {
+                "()": "url_shortener.tools.logs.handlers.UvicornHandler",
+            },
+            "uvicorn.error": {
+                "()": "url_shortener.tools.logs.handlers.UvicornHandler",
+            },
+            "uvicorn.access": {
+                "()": "url_shortener.tools.logs.handlers.UvicornHandler",
+            },
+        },
+        "loggers": {
+            "uvicorn": {"handlers": ["uvicorn"], "level": "INFO"},
+            "uvicorn.error": {"handlers": ["uvicorn.error"], "level": "INFO"},
+            "uvicorn.access": {"handlers": ["uvicorn.access"], "level": "INFO"},
+        },
+    }
