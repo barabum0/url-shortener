@@ -3,7 +3,7 @@
 <p align="center">
 <a href="https://github.com/barabum0/url-shortener/actions"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/barabum0/url-shortener/build-docker-image.yml?logo=github&label=docker%20build"></a>
 <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black"></a>
-<a href="https://github.com/barabum0/url-shortener/blob/main/LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-darkviolet"></a>
+<a href="https://github.com/barabum0/url-shortener/blob/main/LICENSE"><img alt="MIT license" src="https://img.shields.io/github/license/barabum0/url-shortener?color=darkviolet"></a>
 </p>
 
 ---
