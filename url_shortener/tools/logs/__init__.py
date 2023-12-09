@@ -16,7 +16,7 @@ def configure_logger():
 
     logger.remove()
     logger.add(
-        sys.stdout, colorize=True, format=log_format, diagnose=True, backtrace=False
+        sys.stdout, colorize=True, format=log_format, diagnose=True, backtrace=True
     )
     logger.add(
         "./logs/log.log",
