@@ -1,0 +1,12 @@
+from pydantic import BaseModel, Field
+
+
+class LinkStats(BaseModel):
+    clicks: int = Field(gt=0)
+
+
+class Link(BaseModel):
+    link_hash: str
+    origin_url: str
+
+    stats: LinkStats
