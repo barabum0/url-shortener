@@ -6,3 +6,10 @@ services:
     volumes:
       - ./logs/:/usr/src/app/logs/
     restart: unless-stopped
+
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: w6a12da124BP2
