@@ -1,4 +1,3 @@
-import logging
 import sys
 
 from loguru import logger
@@ -7,7 +6,13 @@ from url_shortener.tools.logs.handlers import UvicornHandler
 
 
 def configure_logger():
-    log_format = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
+    log_format_all = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>\n"
+    log_format_request = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | {message}\n"
+
+    def log_format(record) -> str:
+        if record["level"].name == "REQUEST":
+            return log_format_request
+        return log_format_all
 
     logger.remove()
     logger.add(
