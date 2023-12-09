@@ -27,7 +27,7 @@ def configure_logger():
     logger.level("WARNING", color="<yellow>")
     logger.level("ERROR", color="<red>")
     logger.level("CRITICAL", color="<bold><white><RED>")
-    logger.level("REQUEST", no=38, color="<blue>")
+    logger.level("REQUEST", no=38, color="<magenta>")
 
 
 def get_uvicorn_log_config() -> dict:
