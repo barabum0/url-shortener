@@ -1,4 +1,5 @@
 import uvicorn
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from loguru import logger
 
@@ -9,6 +10,7 @@ app = FastAPI()
 
 
 def main():
+    load_dotenv()
     configure_logger()
     logger.info("Starting...")
 
