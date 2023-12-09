@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   url_shortener:
-    image: ghcr.io/suvvyai/url_shortener:latest
+    image: ghcr.io/barabum0/url_shortener:latest
     volumes:
       - ./logs/:/usr/src/app/logs/
     restart: unless-stopped
