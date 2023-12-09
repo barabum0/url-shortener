@@ -264,6 +264,20 @@ typing-extensions = ">=4.8.0"
 all = ["email-validator (>=2.0.0)", "httpx (>=0.23.0)", "itsdangerous (>=1.1.0)", "jinja2 (>=2.11.2)", "orjson (>=3.2.1)", "pydantic-extra-types (>=2.0.0)", "pydantic-settings (>=2.0.0)", "python-multipart (>=0.0.5)", "pyyaml (>=5.3.1)", "ujson (>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0)", "uvicorn[standard] (>=0.12.0)"]
 
 [[package]]
+name = "fastapi-responses"
+version = "0.2.1"
+description = "Extend OpenAPI schema to collect HTTPExceptions."
+optional = false
+python-versions = ">=3.6.1,<4.0.0"
+files = [
+    {file = "fastapi-responses-0.2.1.tar.gz", hash = "sha256:f40f626c03a886611043575b1d68df89cebfa342513248287ef72ce1af46ae5b"},
+    {file = "fastapi_responses-0.2.1-py3-none-any.whl", hash = "sha256:fad40993503de7196cd5625813dc8208f58d024239a774457097eb6aef70bf1b"},
+]
+
+[package.dependencies]
+fastapi = ">=0.62.0"
+
+[[package]]
 name = "frozenlist"
 version = "1.4.0"
 description = "A list-like structure which implements collections.abc.MutableSequence"
@@ -957,4 +971,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "d7c8186f5dd1784bee72ae44b4a71080c1dab653ce55d56a5f1f3307a18adff6"
+content-hash = "f4c5835c5fd7ff8f75f752adcdd5eb31ff66a00c00c1561dc5d73d6b0729b7da"
