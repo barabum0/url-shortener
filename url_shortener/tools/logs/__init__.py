@@ -19,7 +19,7 @@ def configure_logger():
         sys.stdout, colorize=True, format=log_format, diagnose=True, backtrace=False
     )
     logger.add(
-        "log.log",
+        "./logs/log.log",
         rotation="1 week",
         diagnose=True,
         enqueue=True,
