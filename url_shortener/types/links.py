@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 
 
 class LinkStats(BaseModel):
-    clicks: int = Field(gt=0, default=0)
+    clicks: int = Field(ge=0, default=0)
 
 
 class Link(BaseModel):
