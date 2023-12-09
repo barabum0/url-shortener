@@ -6,6 +6,8 @@ services:
     volumes:
       - ./logs/:/usr/src/app/logs/
     restart: unless-stopped
+    ports:
+      - "8080:8000"
 
   mongo:
     image: mongo
