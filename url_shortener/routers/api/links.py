@@ -20,6 +20,9 @@ async def create_link(body: CreateLinkRequest) -> CreateLinkResponse:
             shortened_url_hash=existing_link.link_hash,
         )
 
-    await db.Links.insert_one(
-        Link(link_hash=await db.Links.get_unused_id(), origin_url=link)
+    hash = await db.Links.get_unused_id()
+    await db.Links.insert_one(Link(link_hash=hash, origin_url=link))
+    return CreateLinkResponse(
+        shortened_url=f"{os.getenv('ORIGIN_DOMAIN').rstrip('/')}/{hash}",
+        shortened_url_hash=existing_link.link_hash,
     )
