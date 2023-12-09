@@ -16,6 +16,11 @@ loguru = "^0.7.2"
 [tool.poetry.group.dev.dependencies]
 black = {extras = ["d"], version = "^23.11.0"}
 
+
+[tool.poetry.scripts]
+url_shortener = "url_shortener.__main__:main"
+
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
