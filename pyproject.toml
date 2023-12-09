@@ -19,7 +19,7 @@ black = {extras = ["d"], version = "^23.11.0"}
 
 
 [tool.poetry.scripts]
-url_shortener = "url_shortener.__main__:main"
+app = "url_shortener.__main__:main"
 
 
 [build-system]
