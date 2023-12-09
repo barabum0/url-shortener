@@ -14,7 +14,11 @@ def main():
 
     app.include_router(main_router)
 
-    uvicorn.run("url_shortener.__main__:app", log_config=get_uvicorn_log_config())
+    uvicorn.run(
+        "url_shortener.__main__:app",
+        log_config=get_uvicorn_log_config(),
+        host="0.0.0.0",
+    )
 
 
 if __name__ == "__main__":
