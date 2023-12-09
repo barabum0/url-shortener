@@ -15,3 +15,6 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: w6a12da124BP2
+      MONGO_INITDB_DATABASE: Database
+    volumes:
+      - ./data/mongo:/data/db
